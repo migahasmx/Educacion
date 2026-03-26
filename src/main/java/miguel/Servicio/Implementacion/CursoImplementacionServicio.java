@@ -36,6 +36,6 @@ public class CursoImplementacionServicio implements CursoServicio { // Clase que
 
     @Override // Indica que este método sobrescribe uno definido en la interfaz
     public void eliminarCurso(UUID id) { // Método para eliminar un curso por su ID
-        repositorio.deleteById(id); // Elimina el curso correspondiente en la base de datos
+        repositorio.deleteById(id); // Elimina el curso correspondiente en la base de datos.
     }
 }
