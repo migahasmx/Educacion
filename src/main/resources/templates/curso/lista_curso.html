@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8">
+<title>Lista de Cursos</title></head>
+<body align="center">
+  <h2>Cursos Registrados</h2>
+
+  <table align="center">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>División</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="t : ${lista_curso}">
+        <td th:text="${t.nombreCurso}"></td>
+        <td th:text="${t.division_curso}"></td>
+      </tr>
+      <tr th:if="${#lists.isEmpty(lista_curso)}">
+        <td colspan="2">No hay cursos registrados aún.</td>
+      </tr>
+    </tbody>
+  </table>
+  <form name="frmregresarinicio" id="frmregresarinicio" th:action="@{/}" method="get">
+    <input type="submit" value="Inicio">
+  </form>
+</body>
+</html>

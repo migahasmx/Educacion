@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-MiguelApplication<miguel>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "miguel.MiguelApplication",
+            "projectName": "miguel",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

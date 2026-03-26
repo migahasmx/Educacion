@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Escuela</title>
+</head>
+<body align="center">
+<h1 >Escuela</h1>
+<form method="get" action="/"><button type="submit">Cancelar</button></form>
+
+
+<form th:if="${accion == 'Crear'}" method="post" action="/escuelas/guardar">
+    <p>
+        <label>Nombre: </label>
+        <input type="text" name="nombreEscuela" th:value="${escuela.nombreEscuela}" required />
+    </p>
+    <p>
+        <label>Direccion: </label>
+        <input type="text" name="direccionEscuela" th:value="${escuela.direccionEscuela}" required/>
+    </p>
+    <button type="submit">Guardar</button>
+</form>
+
+<form th:if="${accion == 'Editar'}" method="post" th:action="@{/escuelas/actualizar/{id}(id=${escuela.idEscuela})}">
+    <p>
+        <label>Nombre: </label>
+        <input type="text" name="nombreEscuela" th:value="${escuela.nombreEscuela}" required />
+    </p>
+    <p>
+        <label>Direccion: </label>
+        <input type="text" name="direccionEscuela" th:value="${escuela.direccionEscuela}" />
+    </p>
+    <button type="submit">Actualizar</button>
+</form>
+
+
+</body>
+</html>

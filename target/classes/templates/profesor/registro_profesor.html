@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Profesor </title>
+</head>
+<body align="center">
+<h1 >Profesor</h1>
+<form method="get" action="/"><button  type="submit">Volver</button></form>
+
+
+<form th:if="${accion == 'Crear'}" method="post" action="/profesores/guardar">
+    <p><label>Especialidad: </label><input type="text" name="especialidad" th:value="${profesor.especialidad}"  required/></p>
+    <p><label>CURP: </label><input type="text" name="curp" th:value="${profesor.curp}" required /></p>
+    <p><label>Nombre: </label><input type="text" name="nombre" th:value="${profesor.nombre}" required /></p>
+    <p><label>Apellidos: </label><input type="text" name="apellidos" th:value="${profesor.apellidos}" required /></p>
+    <label>Edad:</label>
+    <select th:field="*{profesor.edad}" required>
+        <option value="">Seleccione ---</option>
+        <option th:each="i : ${#numbers.sequence(18,99)}"
+                th:value="${i}"
+                th:text="${i}">
+        </option>
+    </select>
+    <p>
+    <label>Grupo Sanguíneo:</label>
+    <select th:field="*{profesor.grupoSanguineo}" required>
+        <option value="">Seleccione ---</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="B+">B+</option>
+        <option value="B-">B-</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB-</option>
+    </select>
+</p>
+    <button  type="submit">Guardar</button>
+</form>
+
+
+
+</body>
+</html>

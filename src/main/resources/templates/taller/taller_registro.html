@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registrar Taller</title>
+</head>
+<body align="center">
+
+<h2>Registrar Taller</h2>
+
+<!-- Formulario principal que envía datos al backend -->
+<form th:action="@{/taller/guardar}" method="post" th:object="${parametro}">
+    
+   
+    Nombre:
+    
+    <!-- Input enlazado con la propiedad 'nombreTaller'  -->
+    <input type="text" th:field="*{nombreTaller}" required />
+    <br><br>
+
+   
+    División:
+    
+    <!-- Lista desplegable para seleccionar la división -->
+   
+    <select name="divisionTaller" required>
+        
+        
+        <option value="">Seleccione una división</option>
+        
+        <!-- Opciones disponibles para elegir -->
+        <option value="Negocios, Finanzas y Gestión A">Negocios, Finanzas y Gestión A</option>
+        <option value="Tecnología y Producción">Tecnología y Producción</option>
+        <option value="Salud y Ciencias Biológicas">Salud y Ciencias Biológicas</option>
+        <option value="Habilidades Profesionales y Generales">Habilidades Profesionales y Generales</option>
+    </select>
+    <br><br>
+
+    <!-- Botón para enviar el formulario -->
+    <button type="submit">Guardar</button>
+
+</form>
+
+<br>
+
+<!-- Formulario adicional para regresar a la página principal -->
+<form method="get" action="/">
+    
+    <!-- Botón que redirige al inicio -->
+    <button type="submit">Inicio</button>
+
+</form>
+
+</body>
+</html>

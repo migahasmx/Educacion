@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Asignar taller a alumno</title>
+</head>
+<body align="center">
+
+<h2>Asignar taller a alumno</h2>
+
+<form th:action="@{/alumno-taller/guardar}" method="post">
+
+    <!-- Mensaje de error que se muestra si ya existe la inscripción -->
+    <div th:if="${param.error}">
+        <p >El alumno ya está inscrito en ese taller</p>
+    </div>
+
+    <label>Alumno:</label>
+    <select name="idAlumno" required>
+        <option value="">Seleccione</option> 
+        <option th:each="alumno : ${alumnos}"
+                th:value="${alumno.idAlumno}"
+                th:text="${alumno.datosPersonales.nombre}">
+        </option>
+    </select>
+
+    <br><br>
+
+    <label>Taller:</label>
+    <select name="idTaller" required>
+        <option value="">Seleccione</option>
+        <option th:each="taller : ${talleres}"
+                th:value="${taller.idTaller}"
+                th:text="${taller.nombreTaller}">
+        </option>
+    </select>
+
+    <br><br>
+
+    <button type="submit">Asignar</button>
+
+</form>
+<form method="get" action="/">
+    <button type="submit">Inicio</button>
+</form>
+<br>
+</body>
+</html>
+

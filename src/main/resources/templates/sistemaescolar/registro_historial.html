@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Historial Académico </title>
+</head>
+<body align="center">
+<h1>Historial Académico</h1>
+<form method="get" action="/"><button type="submit"> Cancelar</button></form>
+
+
+<form th:if="${accion == 'Crear'}" method="post" action="/sistema/guardar">
+    <p>
+        <label>Alumno: </label>
+        <select name="idAlumno" required>
+            <option value="">Seleccione...</option>
+            <option th:each="alumno : ${alumnos}"
+                    th:value="${alumno.idAlumno}"
+                    th:text="${alumno.nombre} + ' ' + ${alumno.apellidos} + ' - ' + ${alumno.matricula}">
+            </option>
+        </select>
+    </p>
+    <p>
+        <label>Profesor: </label>
+        <select name="idProfesor" required>
+            <option value="">Seleccione...</option>
+            <option th:each="profesor : ${profesores}"
+                    th:value="${profesor.idProfesor}"
+                    th:text="${profesor.nombre} + ' ' + ${profesor.apellidos}">
+            </option>
+        </select>
+    </p>
+    <p>
+        <label>Carrera: </label>
+        <select name="idCarrera" required>
+            <option value="">Seleccione...</option>
+            <option th:each="carrera : ${carreras}"
+                    th:value="${carrera.idCarrera}"
+                    th:text="${carrera.nombreCarrera}">
+            </option>
+        </select>
+    </p>
+    <p>
+        <label>Materia: </label>
+        <select name="idMateria" required>
+            <option value="">Seleccione...</option>
+            <option th:each="materia : ${materias}"
+                    th:value="${materia.idMateria}"
+                    th:text="${materia.nombreMateria}">
+            </option>
+        </select>
+    </p>
+    <p><label>Calificacion: </label><input type="number" step="0.01" name="calificacion" min="0" max="10" required></p>
+    <button type="submit"> Guardar</button>
+</form>
+
+
+
+</body>
+</html>

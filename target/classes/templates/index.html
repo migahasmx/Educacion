@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>EDUCACIÓN</title>
+
+    <style>
+       
+        body {
+            text-align: center;
+        }
+
+        
+        .contenedor {
+            display: flex;
+            justify-content: center;
+            gap: 80px; 
+        }
+
+        
+        .seccion {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+       
+        form {
+            width: 220px;
+        }
+
+        
+        .boton {
+            width: 100%;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>E D U C A C I Ó N</h2>
+
+    <div class="contenedor">
+
+        
+        <div class="seccion">
+            <div class="titulo">REGISTRO</div>
+
+            <!-- Formulario para ir a la vista de registro de una nueva escuela -->
+            <form th:action="@{/escuelas/nueva}" method="get">
+                <button class="boton">Escuela</button>
+            </form>
+
+            <!-- Formulario para registrar una nueva carrera -->
+            <form th:action="@{/carreras/nueva}" method="get">
+                <button class="boton">Carrera</button>
+            </form>
+
+            <!-- Formulario para registrar una nueva materia -->
+            <form th:action="@{/materias/nueva}" method="get">
+                <button class="boton">Materia</button>
+            </form>
+
+            <!-- Formulario para registrar un nuevo alumno -->
+            <form th:action="@{/alumnos/nuevo}" method="get">
+                <button class="boton">Alumno</button>
+            </form>
+
+            <!-- Formulario para registrar un profesor -->
+            <form th:action="@{/profesores/nuevo}" method="get">
+                <button class="boton">Profesor</button>
+            </form>
+
+            <!-- Formulario para registrar un curso -->
+            <form th:action="@{/curso/nuevo}" method="get">
+                <button class="boton">Curso</button>
+            </form>
+
+            <!-- Formulario para asignar un alumno a un taller -->
+            <form th:action="@{/profesor-curso/nuevo}" method="get">
+                <button class="boton">Asignar Curso</button>
+            </form>
+
+            <!-- Formulario para registrar un taller -->
+            <form th:action="@{/taller/nuevo}" method="get">
+                <button class="boton">Taller</button>
+            </form>
+
+            <!-- Formulario para asignar un alumno a un taller -->
+            <form th:action="@{/alumno-taller/nuevo}" method="get">
+                <button class="boton">Asignar Taller</button>
+            </form>
+
+            <!-- Formulario para registrar o ver historial del sistema -->
+            <form th:action="@{/sistema/nuevo}" method="get">
+                <button class="boton">Historial</button>
+            </form>
+        </div>
+
+        
+        <div class="seccion">
+            <div class="titulo">CONSULTA</div>
+
+            <!-- Lista de todas las escuelas -->
+            <form th:action="@{/escuelas}" method="get">
+                <button class="boton">Escuelas</button>
+            </form>
+
+            <!-- Lista de todas las carreras -->
+            <form th:action="@{/carreras}" method="get">
+                <button class="boton">Carreras</button>
+            </form>
+
+            <!-- Consulta de carreras filtradas por escuela -->
+            <form th:action="@{/carreras/lista_carreras_por_escuela}" method="get">
+                <button class="boton">Carreras por Escuela</button>
+            </form>
+
+            <!-- Consulta de materias usando JPA/JPQL -->
+            <form th:action="@{/materias}" method="get">
+                <button class="boton">Materias JPA-JPQL</button>
+            </form>
+
+            <!-- Lista de alumnos -->
+            <form th:action="@{/alumnos}" method="get">
+                <button class="boton">Alumnos</button>
+            </form>
+
+            <!-- Lista de profesores -->
+            <form th:action="@{/profesores}" method="get">
+                <button class="boton">Profesores</button>
+            </form>
+
+            <!-- Lista de cursos -->
+            <form th:action="@{/curso/lista}" method="get">
+                <button class="boton">Cursos</button>
+            </form>
+
+            <!-- Consulta de alumnos inscritos en un taller -->
+            <form th:action="@{/profesor-curso/profesores-por-curso}" method="get">
+                <button class="boton">Profesores por Curso</button>
+            </form>
+
+            <!-- Consulta de talleres en los que está inscrito un alumno -->
+            <form th:action="@{/profesor-curso/cursos-por-profesor}" method="get">
+                <button class="boton">Cursos por Profesor</button>
+            </form>
+
+            <!-- Lista de talleres -->
+            <form th:action="@{/taller/lista}" method="get">
+                <button class="boton">Talleres</button>
+            </form>
+
+            <!-- Consulta de alumnos inscritos en un taller -->
+            <form th:action="@{/alumno-taller/alumnos-por-taller}" method="get">
+                <button class="boton">Alumnos por Taller</button>
+            </form>
+
+            <!-- Consulta de talleres en los que está inscrito un alumno -->
+            <form th:action="@{/alumno-taller/talleres-por-alumno}" method="get">
+                <button class="boton">Talleres por Alumno</button>
+            </form>
+
+            <!-- Consulta del historial del sistema -->
+            <form th:action="@{/sistema}" method="get">
+                <button class="boton">Historial</button>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

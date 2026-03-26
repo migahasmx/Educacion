@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Talleres por Alumno</title>
+
+    
+</head>
+<body align="center">
+
+<h3>Talleres por Alumno</h3>
+<form method="get" action="/">
+    <button type="submit">Inicio</button>
+</form>
+
+<div class="contenedor">
+
+    <!-- Itera sobre el mapa 'agrupados' (clave = nombre del alumno, valor = lista de talleres) -->
+    <div th:each="entry : ${agrupados}" class="alumno-card">
+
+        <!-- Muestra el nombre del alumno  -->
+        <div class="alumno-nombre" th:text="${entry.key}"></div>
+
+        <!-- Lista de talleres asociados al alumno -->
+        <ul>
+            <!-- Itera sobre cada taller en la lista  -->
+           
+            <table th:each="at : ${entry.value}"
+                th:text="${at.taller.nombreTaller}">
+            </table>
+        </ul>
+
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

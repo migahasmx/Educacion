@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Carreras por Escuela</title>
+
+</head>
+
+<body align="center">
+
+<h4 align="center">Carreras por Escuela</h4>
+
+<!-- Botón para volver al inicio -->
+<form method="get" action="/"> <button type="submit">Inicio</button> </form>
+
+<!-- Recorre cada escuela -->
+<div th:each="escuela : ${lista}">
+
+    <!-- Nombre de la escuela -->
+    <h4 
+        th:text="${escuela.nombreEscuela}">
+    </h4>
+
+    <!-- Lista de carreras -->
+    <ul >
+
+        <table  th:each="carrera : ${escuela.carreras}"
+            class="mayus"
+            th:text="${carrera.nombreCarrera}">
+        </table>
+
+    </ul>
+
+</div>
+
+</body>
+</html>

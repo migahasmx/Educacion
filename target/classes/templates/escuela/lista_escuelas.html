@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        .borde {
+          border: 1px solid rgb(0, 0, 0);
+        }
+      </style>
+
+    <meta charset="UTF-8">
+    <title>Escuelas</title>
+</head>
+<body align="center">
+<h1>Lista de Escuelas</h1>
+<form method="get" action="/"><button type="submit">Inicio</button></form>
+<!--<form method="get" action="/escuelas/nueva"><button type="submit">Nueva Escuela</button></form>-->
+
+<table align="center" >
+    <thead>
+        <tr>
+          <!--  <th>ID</th> -->
+            <th>Nombre</th>
+            <th>Direccion</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="escuela : ${escuelas}">
+            <!--  <td  th:text="${escuela.idEscuela}"></td> -->
+            <td class="borde" th:text="${escuela.nombreEscuela}"></td>
+            <td class="borde" th:text="${escuela.direccionEscuela}"></td>
+            <td>
+                <form method="get" th:action="@{/escuelas/editar/{id}(id=${escuela.idEscuela})}">
+                    <button title="Modificar" type="submit">✏️</button>
+                </form>
+                <form method="post" th:action="@{/escuelas/eliminar/{id}(id=${escuela.idEscuela})}">
+                    <button type="submit"onclick="return confirm('¿Eliminar escuela?')">🚫</button>
+                </form>
+                
+            </td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

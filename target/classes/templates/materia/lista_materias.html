@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Materias</title>
+</head>
+
+<body align="center">
+
+    <h1>Lista de Materias</h1>
+
+    <form method="get" action="/">
+        <button type="submit">Inicio</button>
+    </form>
+
+    <div>
+
+        
+        <div>
+            <h3>JPA</h3>
+            <table align="center">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Creditos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="materia : ${materiasJPA}">
+                        <td th:text="${materia.nombreMateria}"></td>
+                        <td th:text="${materia.creditosMateria}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        
+        <div>
+            <h3>JPQL</h3>
+            <table align="center">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Creditos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="materia : ${materiasJPQL}">
+                        <td th:text="${materia.nombreMateria}"></td>
+                        <td th:text="${materia.creditosMateria}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Asignar Curso a Profesor</title>
+</head>
+<body align="center">
+
+<h2>Asignar Curso a Profesor</h2>
+
+<form th:action="@{/profesor-curso/guardar}" method="post">
+
+    <!-- Mensaje de error que se muestra si ya existe la inscripción -->
+    <div th:if="${param.error}">
+        <p >El profesor ya tiene el curso asignado</p>
+    </div>
+
+    <label>Profesor:</label>
+    <select name="idProfesor" required>
+        <option value="">Seleccione</option> 
+        <option th:each="profesor : ${profesores}"
+                th:value="${profesor.idProfesor}"
+                th:text="${profesor.datosPersonales.nombre}">
+        </option>
+    </select>
+
+    <br><br>
+
+    <label>Curso:</label>
+    <select name="idCurso" required>
+        <option value="">Seleccione</option>
+        <option th:each="curso : ${cursos}"
+                th:value="${curso.idCurso}"
+                th:text="${curso.nombreCurso}">
+        </option>
+    </select>
+
+    <br><br>
+
+    <button type="submit">Asignar</button>
+
+</form>
+<form method="get" action="/">
+    <button type="submit">Inicio</button>
+</form>
+<br>
+</body>
+</html>

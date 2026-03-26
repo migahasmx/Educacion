@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Materia </title>
+</head>
+<body align="center">
+<h1 >Materia</h1>
+<form method="get" action="/"><button type="submit">Inicio</button></form>
+
+
+<form th:if="${accion == 'Crear'}" method="post" action="/materias/guardar">
+    <p>
+        <label>Nombre: </label>
+        <input type="text" name="nombreMateria" th:value="${materia.nombreMateria}" required />
+    </p>
+    <p>
+        <label>Creditos: </label>
+        <input type="number" name="creditosMateria" th:value="${materia.creditosMateria}" required/>
+    </p>
+    <button type="submit">Guardar</button>
+</form>
+
+
+
+</body>
+</html>

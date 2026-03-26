@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Carreras</title>
+
+<style>
+/* Borde simple para las celdas de la tabla */
+.borde{
+border:1px solid black;
+}
+</style>
+
+</head>
+
+<body align="center">
+
+<!-- Título de la página -->
+<h1>Lista de Carreras</h1>
+
+<!-- Botón para volver al inicio -->
+<form method="get" action="/">
+<button type="submit">Inicio</button>
+</form>
+
+<!-- Botón para crear una nueva carrera -->
+
+
+<table align="center">
+
+<thead>
+
+<tr>
+
+<!-- Columna nombre de carrera -->
+<td>Nombre Carrera</td>
+
+<!-- Columna nombre de escuela -->
+<td>Nombre Escuela</td>
+
+
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<!-- Recorre la lista de carreras enviada por el controlador -->
+<tr th:each="carrera : ${carreras}">
+
+<td class="borde" th:text="${carrera.nombreCarrera}"></td>
+
+<td class="borde" th:text="${carrera.nombreEscuela}"></td>
+
+<td>
+
+
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</body>
+
+</html>

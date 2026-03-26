@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Carrera</title>
+</head>
+
+<body align="center">
+
+<!-- Título dinámico: Crear Carrera o Editar Carrera -->
+<h1 th:text="${accion} + ' Carrera'"></h1>
+
+<!-- Botón para volver a la lista -->
+<form method="get" action="/">
+<button type="submit">Volver</button>
+</form>
+
+<!--
+El formulario cambia su acción dependiendo si se está
+creando o editando
+-->
+<form th:action="${accion == 'Crear'} ? @{/carreras/guardar} : @{/carreras/actualizar}" method="post">
+
+<!-- Campo oculto para guardar el ID cuando se edita -->
+<input type="hidden" name="idCarrera" th:value="${carrera.idCarrera}">
+
+<p>
+
+<label>Nombre:</label>
+
+<input type="text"
+name="nombreCarrera"
+th:value="${carrera.nombreCarrera}">
+
+</p>
+
+<p>
+
+<label>Escuela:</label>
+
+<!-- Select con todas las escuelas -->
+<select name="idEscuela">
+
+<option th:each="escuela : ${escuelas}"
+th:value="${escuela.idEscuela}"
+th:text="${escuela.nombreEscuela}"
+th:selected="${escuela.idEscuela == carrera.idEscuela}">
+</option>
+
+</select>
+
+</p>
+
+<!-- Botón dinámico Crear o Editar -->
+<button type="submit" th:text="${accion}"></button>
+
+</form>
+
+</body>
+
+</html>

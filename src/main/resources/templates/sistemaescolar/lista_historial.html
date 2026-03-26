@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    
+
+    <meta charset="UTF-8">
+    <title>Historial Académico</title>
+</head>
+<body align="center">
+<h1>Historial Académico</h1>
+<form method="get" action="/"><button type="submit">Inicio</button></form>
+
+
+<table align="center">
+    <thead>
+    <tr>
+    <th class="borde">Alumno</th>
+    <th class="borde">Profesor</th>
+    <th class="borde">Carrera</th>
+    <th class="borde">Materia</th>
+    <th class="borde">Calificación</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr th:each="registro : ${registros}">
+    
+    <td class="borde" th:text="${registro.nombreAlumno}"></td>
+    
+    <td class="borde" th:text="${registro.nombreProfesor}"></td>
+    
+    <td class="borde" th:text="${registro.nombreCarrera}"></td>
+    
+    <td class="borde" th:text="${registro.nombreMateria}"></td>
+    
+    <td class="borde" th:text="${registro.calificacion}"></td>
+    
+    </tr>
+    </tbody>
+    </table>
+</body>
+</html>

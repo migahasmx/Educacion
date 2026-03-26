@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Curso</title>
+</head> 
+    <body align="center">  
+        <h2>Registrar Curso</h2>
+        
+        <form th:action="@{/curso/guardar_curso}" method="post">
+            <table align="center">
+                <tbody>
+                    <tr>
+                        <td>Nombre del curso:</td>
+                        <td>
+                            <input type="text" name="nombreCurso" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>División:</td>
+                        <td>
+                            <select name="divisionCurso" required>
+                                <option value="">Seleccione una división</option>
+                                <option value="Negocios, Finanzas y Gestión A">Negocios, Finanzas y Gestión A</option>
+                                <option value="Tecnología y Producción">Tecnología y Producción</option>
+                                <option value="Salud y Ciencias Biológicas">Salud y Ciencias Biológicas</option>
+                                <option value="Habilidades Profesionales y Generales">Habilidades Profesionales y Generales</option>
+                            </select>
+                            
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" value="Guardar">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        <form name="frmregresarinicio" id="frmregresarinicio" th:action="@{/}" method="get">
+            <input type="submit" value="Inicio">
+        </form>
+    </body>
+</html>
+

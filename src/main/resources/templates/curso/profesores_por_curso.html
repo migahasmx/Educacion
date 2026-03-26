@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Profesores por Curso</title>
+   
+</head>
+
+<body align="center">
+
+
+<h2>Profesores por Curso</h2>
+
+
+<form method="get" action="/">
+    <!-- Botón para volver a la página principal -->
+    <button type="submit">Inicio</button>
+  
+</form>
+<!-- Solo se muestra este bloque si la variable 'agrupados' NO es nula -->
+
+<div th:if="${agrupados != null}">
+   
+    <!-- Recorre cada taller -->
+    <div th:each="entry : ${agrupados}">
+       
+
+        <!-- Nombre del taller -->
+        <h3 th:text="${entry.key}"></h3>
+       
+
+        <!-- Lista en línea -->
+        <p> 
+            <!-- Recorre la lista de alumnos del taller -->
+            <span th:each="at, iter : ${entry.value}">
+               
+               
+                <!-- Muestra el nombre del alumno -->
+                <span th:text="${at.profesor.datosPersonales.nombre}"></span>
+               
+                <!-- Si NO es el último elemento, agrega un guion como separador -->
+                <span th:if="${!iter.last}">- </span>
+               
+            </span>
+        </p>
+
+        <p>_________________________</p>
+       
+    </div>
+    
+</div>
+</body>
+</html>

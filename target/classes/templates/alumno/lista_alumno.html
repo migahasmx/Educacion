@@ -1,0 +1,41 @@
+<!DOCTYPE html> 
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <title>Alumnos</title> 
+</head>
+<body align="center"> 
+<h1>Lista de Alumnos</h1> 
+<form method="get" action="/"> 
+    <button type="submit">Inicio</button> <!-- Botón para regresar al inicio -->
+</form>
+<!--<form method="get" action="/alumnos/nuevo"><button type="submit">Nuevo Alumno</button></form>--> <!-- Formulario comentado para crear un nuevo alumno -->
+
+<table align="center" > 
+    <thead> 
+        <tr> 
+           
+            <th>Matricula</th> <!-- Encabezado de la columna matrícula -->
+            <th>Nombre</th> <!-- Encabezado de la columna nombre -->
+            <th>Apellidos</th> <!-- Encabezado de la columna apellidos -->
+            <th>CURP</th> <!-- Encabezado de la columna CURP -->
+            <th>Edad</th> <!-- Encabezado de la columna edad -->
+            <th>Grupo Sanguineo</th> <!-- Encabezado de la columna grupo sanguíneo -->
+            
+        </tr>
+    </thead>
+    <tbody> 
+        <tr th:each="alumno : ${alumnos}"> <!-- Itera sobre la lista de alumnos usando Thymeleaf -->
+            <td th:text="${alumno.matricula}"></td> <!-- Muestra la matrícula del alumno -->
+            <td th:text="${alumno.nombre}"></td> <!-- Muestra el nombre del alumno -->
+            <td th:text="${alumno.apellidos}"></td> <!-- Muestra los apellidos del alumno -->
+            <td th:text="${alumno.curp}"></td> <!-- Muestra la CURP del alumno -->
+            <td th:text="${alumno.edad}"></td> <!-- Muestra la edad del alumno -->
+            <td th:text="${alumno.grupoSanguineo}"></td> <!-- Muestra el grupo sanguíneo del alumno -->
+            
+            
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

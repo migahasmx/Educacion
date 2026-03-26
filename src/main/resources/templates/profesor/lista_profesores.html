@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Profesores</title>
+</head>
+<body align="center">
+<h1>Lista de Profesores</h1>
+<form method="get" action="/"><button type="submit">Inicio</button></form>
+<!--<form method="get" action="/profesores/nuevo"><button type="submit">Nuevo Profesor</button></form>-->
+
+<table align="center" >
+    <thead>
+        <tr>
+            <!--    <th>ID</th>  -->
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>CURP</th>
+            <th>Edad</th>
+            <th>Grupo Sanguineo</th>
+            <th>Especialidad</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="profesor : ${profesores}">
+            <!--    <td th:text="${profesor.idProfesor}"></td>  -->
+            <td th:text="${profesor.nombre}"></td>
+            <td th:text="${profesor.apellidos}"></td>
+            <td th:text="${profesor.curp}"></td>
+            <td th:text="${profesor.edad}"></td>
+            <td th:text="${profesor.grupoSanguineo}"></td>
+            <td th:text="${profesor.especialidad}"></td>
+           
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

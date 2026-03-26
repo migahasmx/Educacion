@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Alumno </title>
+</head>
+<body align="center">
+
+
+<h1>Alumno</h1>
+
+<!--  Botón para regresar al inicio -->
+<form method="get" action="/">
+    <button type="submit">Volver</button>
+</form>
+
+
+<!-- Crear alumno (solo se muestra si accion == 'Crear') -->
+<form th:if="${accion == 'Crear'}" method="post" action="/alumnos/guardar">
+    
+    <p>
+        <label>Matricula: </label>
+        <input type="text" name="matricula" th:value="${alumno.matricula}" required />
+    </p>
+
+    <!-- Campo: CURP -->
+    <p>
+        <label>CURP: </label>
+        <input type="text" name="curp" th:value="${alumno.curp}" required />
+    </p>
+
+    <!-- Campo: Nombre -->
+    <p>
+        <label>Nombre: </label>
+        <input type="text" name="nombre" th:value="${alumno.nombre}" required />
+    </p>
+
+    <!-- Campo: Apellidos -->
+    <p>
+        <label>Apellidos: </label>
+        <input type="text" name="apellidos" th:value="${alumno.apellidos}" required />
+    </p>
+
+    <!-- Campo: Edad -->
+    <!-- th:field vincula el campo con la propiedad alumno.edad -->
+    <label>Edad:</label>
+    <select th:field="*{alumno.edad}" required>
+        
+        <!-- Opción por defecto -->
+        <option value="">Seleccione ---</option>
+
+        <!-- Genera números del 1 al 99 automáticamente -->
+        <option th:each="i : ${#numbers.sequence(1,99)}"
+                th:value="${i}"
+                th:text="${i}">
+        </option>
+    </select>
+
+    <!-- Campo: Grupo sanguíneo -->
+    <p>
+        <label>Grupo Sanguíneo:</label>
+        
+        <!-- Vinculado con alumno.grupoSanguineo -->
+        <select th:field="*{alumno.grupoSanguineo}" required>
+            
+            <!-- Opción inicial -->
+            <option value="">Seleccione ---</option>
+
+            <!-- Opciones fijas -->
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+        </select>
+    </p>
+
+    <!-- Botón para enviar el formulario -->
+    <!-- Envía los datos al endpoint /alumnos/guardar con método POST -->
+    <button type="submit">Guardar</button>
+
+</form>
+
+</body>
+</html>
